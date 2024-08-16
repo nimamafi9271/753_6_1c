@@ -15,11 +15,11 @@ pipeline{
 
             post{
                 always{
-                    echo "Unit and Integration Testing Successful"
+                    echo "Unit and Integration Testing Status: ${currentBuild.currentResult}"
                     emailext(
                         to: "nima.mafi92@gmail.com",
-                        subject: "Test Status",
-                        body: "Test was Successful!",
+                        subject: "Test Status for ${currentBuild.fullDisplayName}",
+                        body: "Test status for ${currentBuild.fullDisplayName} is ${currentBuild.currentResult}",
                         attachLog: true
                     )   
                 }
@@ -44,7 +44,7 @@ pipeline{
                     emailext(
                         to: "nima.mafi92@gmail.com",
                         subject: "Security Scan Status for ${currentBuild.fullDisplayName}",
-                        body: "Security Scan was ${currentBuild.currentResult}ful!",
+                        body: "Security Scan status for for ${currentBuild.fullDisplayName} is ${currentBuild.currentResult.tolower()}",
                         attachLog: true
                     )
                     
