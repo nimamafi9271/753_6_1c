@@ -40,11 +40,11 @@ pipeline{
 
             post{
                 always{
-                    echo "Security Scan ${currentBuild.currentResult}:${currentBuild.fullDisplayName}"
+                    echo "Security Scan Status: ${currentBuild.currentResult}"
                     emailext(
                         to: "nima.mafi92@gmail.com",
-                        subject: "Security Scan Status",
-                        body: "Security Scan was Successful!",
+                        subject: "Security Scan Status for ${currentBuild.fullDisplayName}",
+                        body: "Security Scan was ${currentBuild.currentResult}ful!",
                         attachLog: true
                     )
                     
