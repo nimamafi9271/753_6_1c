@@ -17,7 +17,7 @@ pipeline{
                 success{
                     echo "Unit and Integration Testing Successful"
                     emailext(
-                        to: "nima.mafi9271@gmail.com",
+                        to: "nima.mafi92@gmail.com",
                         subject: "Test Status Email",
                         body: "Test was Successful!",
                         attachLog: true
