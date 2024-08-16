@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    environment{
-
-    }
     stages{
         stage('Build'){
             steps{
@@ -19,10 +16,12 @@ pipeline{
             post{
                 success{
                     echo "Unit and Integration Testing Successful"
-                    mail to: "nima.mafi92@gmail.com",
-                    subject: "Test Status Email",
-                    body: "Test was Successful!",
-                    attachLog: true
+                    emailext(
+                        to: "nima.mafi92@gmail.com",
+                        subject: "Test Status Email",
+                        body: "Test was Successful!",
+                        attachLog: true
+                    )
                 }
             }
         }
@@ -42,9 +41,13 @@ pipeline{
             post{
                 success{
                     echo "Security Scan Successful"
-                    mail to: "nima.mafi92@gmail.com",
-                    subject: "Security Scan Status Email",
-                    body: "Security Scan was Successful!"
+                    emailext(
+                        to: "nima.mafi92@gmail.com",
+                        subject: "Security Scan Status Email",
+                        body: "Security Scan was Successful!",
+                        attachLog: true
+                    )
+                    
                 }
             }
         }
