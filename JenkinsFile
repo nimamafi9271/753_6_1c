@@ -1,0 +1,63 @@
+pipeline{
+    agent any
+    environment{
+
+    }
+    stages{
+        stage('Build'){
+            steps{
+
+            }
+        }
+
+        stage('Unit and Integration Tests'){
+            steps{
+
+            }
+
+            post{
+                success{
+                    echo "Unit and Integration Testing Successful"
+                    mail to: "nima.mafi92@gmail.com",
+                    subject: "Test Status Email",
+                    body: "Test was Successful!",
+                    attachLog: true
+                }
+            }
+        }
+
+        stage('Code Analysis'){
+            steps{
+
+            }
+        }
+
+        stage('Security Scan'){
+            steps{
+
+            }
+
+            post{
+                success{
+                    echo "Security Scan Successful"
+                    mail to: "nima.mafi92@gmail.com",
+                    subject: "Security Scan Status Email",
+                    body: "Security Scan was Successful!"
+                }
+            }
+        }
+
+        stage('Integration Tests on Staging'){
+            steps{
+
+            }
+        }
+
+        stage('Deploy to Production'){
+            steps{
+
+            }
+        }
+
+    }
+}
