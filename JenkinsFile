@@ -45,7 +45,7 @@ pipeline{
                     emailext(
                         to: "nima.mafi92@gmail.com",
                         subject: "Security Scan Status for ${currentBuild.fullDisplayName}",
-                        body: "Security Scan status for for ${currentBuild.fullDisplayName} is ${currentBuild.currentResult.tolower()}",
+                        body: "Security Scan status for for ${currentBuild.fullDisplayName} is ${currentBuild.currentResult}",
                         attachLog: true
                     )
                     
