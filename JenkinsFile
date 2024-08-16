@@ -3,47 +3,47 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                echo "Building"
+                echo "Building..."
 
             }
         }
 
         stage('Unit and Integration Tests'){
             steps{
-                echo "Testing"
+                echo "Testing..."
             }
 
             post{
-                success{
+                always{
                     echo "Unit and Integration Testing Successful"
                     emailext(
                         to: "nima.mafi92@gmail.com",
-                        subject: "Test Status Email",
+                        subject: "Test Status",
                         body: "Test was Successful!",
                         attachLog: true
-                    )
+                    )   
                 }
             }
         }
 
         stage('Code Analysis'){
             steps{
-                echo "Analysing code"
+                echo "Analysing code..."
             }
         }
 
         stage('Security Scan'){
             steps{
-                echo "Scanning for Security"
+                echo "Performing Security Scan..."
 
             }
 
             post{
-                success{
-                    echo "Security Scan Successful"
+                always{
+                    echo "Security Scan ${currentBuild.currentResult}:${currentBuild.fullDisplayName}"
                     emailext(
                         to: "nima.mafi92@gmail.com",
-                        subject: "Security Scan Status Email",
+                        subject: "Security Scan Status",
                         body: "Security Scan was Successful!",
                         attachLog: true
                     )
@@ -54,14 +54,14 @@ pipeline{
 
         stage('Integration Tests on Staging'){
             steps{
-                echo "Performing Integration Tests in Staging Environment"
+                echo "Integration Testing in Staging Environment..."
 
             }
         }
 
         stage('Deploy to Production'){
             steps{
-                echo "Deploying to Production Environment"
+                echo "Deploying to Production Environment..."
 
             }
         }
