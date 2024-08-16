@@ -15,7 +15,7 @@ pipeline{
 
             post{
                 success{
-                    echo "Unit and Integration Testing Successful
+                    echo "Unit and Integration Testing Successful"
                     mail to: "nima.mafi92@gmail.com",
                     subject: "Test Status Email",
                     body: "Test was Successful!"
