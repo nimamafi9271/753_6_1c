@@ -8,6 +8,7 @@ pipeline{
                 echo "Using virtualenv to isolate project dependencies in a virtual environment"
                 echo "Using pip to install project dependencies"
                 echo "Using Pyinstaller to build the Python package"
+                echo "checking automatic trigger"
     
             }
         }
