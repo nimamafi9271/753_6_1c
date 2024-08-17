@@ -15,8 +15,7 @@ pipeline{
         stage('Unit and Integration Tests'){
             steps{
                 echo "Testing..."
-                echo "involves running automated tests to ensure individual components work correctly and 
-                integrate together properly"
+                echo "involves running automated tests to ensure individual components work correctly and integrate together properly"
                 echo "Using Pytest for run automated tests on the Python package"
             }
 
@@ -36,8 +35,7 @@ pipeline{
         stage('Code Analysis'){
             steps{
                 echo "Analysing code..."
-                echo "Analysing code quality to ensure conformity to coding standards through 
-                static code analysis to identify coding issues"
+                echo "Analysing code quality to ensure conformity to coding standards through static code analysis to identify coding issues"
                 echo "Using Pylint to analyse code quality in the Python package"
             }
         }
@@ -67,8 +65,7 @@ pipeline{
         stage('Deploy - Staging'){
             steps{
                 echo "Deploying to Staging Environment..."
-                echo "Deploying the package to a production-like environment to be analysed and tested before
-                being released to the real-world production environment"
+                echo "Deploying the package to a production-like environment to be analysed and tested before being released to the real-world production environment"
                 echo "Using Docker to build a Docker image of Python application for deployment"
                 echo "Using Docker to deploy the Docker container to Staging environment"
 
@@ -80,9 +77,7 @@ pipeline{
         stage('Integration Tests on Staging'){
             steps{
                 echo "Integration Testing in Staging Environment..."
-                echo "performing integration test on Python package
-                to ensure its correct integration with external services and databases
-                in a production-like environment"
+                echo "performing integration test on Python package to ensure its correct integration with external services and databases in a production-like environment"
                 echo "Using Postman to test integration with external APIs"
                 echo "Using Selenium for automated end-to-end testing in case Python web-applications"
 
@@ -92,8 +87,7 @@ pipeline{
         stage('Deploy - Production'){
             steps{
                 echo "Deploying to Production Environment..."
-                echo "Deploying the final version of the Python application to production environmnet,
-                making it available to real-world users"
+                echo "Deploying the final version of the Python application to production environmnet, making it available to real-world users"
                 echo "Using Docker to build a Docker image of the final, tested python application for deployment"
                 echo "Using Docker to deploy the Docker container to production environment"
             }
